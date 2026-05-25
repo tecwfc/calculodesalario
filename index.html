@@ -158,6 +158,18 @@ button.btn-elegant + button.btn-elegant:hover{
   color:#0f172a;
 }
 
+/* Estilo para o terceiro botão sequencial (Limpar) manter o padrão secundário */
+button.btn-elegant:nth-of-type(3) {
+  background:#f1f5f9;
+  color:#475569;
+  border:1px solid #cbd5e1;
+}
+button.btn-elegant:nth-of-type(3):hover {
+  background:#f87171;
+  color:white;
+  border-color:#ef4444;
+}
+
 .result-panel{
   padding:1.5rem 2.5rem 2.5rem;
   background:#f8fafc;
@@ -384,6 +396,11 @@ Calcular Salário
 <button class="btn-elegant" onclick="baixarPDF()">
 <i class="fas fa-file-pdf"></i>
 Gerar PDF
+</button>
+
+<button class="btn-elegant" onclick="limparCampos()">
+<i class="fas fa-trash-alt"></i>
+Limpar Campos
 </button>
 
 <div class="result-panel">
@@ -636,6 +653,24 @@ html2pdf()
 .from(elemento)
 .save();
 
+}
+
+function limparCampos() {
+  document.getElementById('salarioContrato').value = "0";
+  document.getElementById('faltasHorasSelect').value = "0";
+  document.getElementById('diasUteis').value = "22";
+  document.getElementById('dependentesQt').value = "0";
+  document.getElementById('insalubridadeOpt').value = "0";
+  document.getElementById('noturnoOpt').value = "0";
+  document.getElementById('horasExtraQ').value = "0";
+  document.getElementById('extraPercOpt').value = "0";
+  document.getElementById('consignadoValor').value = "0";
+  document.getElementById('adiantamentoValor').value = "0";
+  document.getElementById('vtOpcao').value = "0";
+  document.getElementById('outrosDescVal').value = "0";
+  
+  // Recalcula para atualizar a área visível do holerite com valores zerados
+  calcularFolha();
 }
 
 window.addEventListener('DOMContentLoaded',()=>{
